@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Neo Bullx Sandbox",
+  "version": "1.0",
+  "description": "A simple for Neo Bullx",
+  "permissions": ["activeTab", "tabs", "storage", "sidePanel"],
+  "action": {
+    "default_title": "Neo Bullx Sandbox"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html",
+    "enabled": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "host_permissions": ["https://neo.bullx.io/*"]
+}

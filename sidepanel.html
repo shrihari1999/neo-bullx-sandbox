@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; padding: 10px; width: 250px; }
+    button { margin: 4px; width: 100%; }
+    #holdings { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h3>Buy</h3>
+  <button id="buy">Buy 1 Unit</button>
+
+  <h3>Sell</h3>
+  <div>
+    <button class="sell" data-percent="25">Sell 25%</button>
+    <button class="sell" data-percent="50">Sell 50%</button>
+    <button class="sell" data-percent="75">Sell 75%</button>
+    <button class="sell" data-percent="100">Sell 100%</button>
+  </div>
+
+  <div id="holdings">Loading...</div>
+
+  <h3>Actions</h3>
+  <button id="reset-token">Reset This Token</button>
+  <button id="reset-all">Reset All Tokens</button>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
