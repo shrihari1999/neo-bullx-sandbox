@@ -1,30 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <style>
-    body { font-family: sans-serif; padding: 10px; width: 250px; }
-    button { margin: 4px; width: 100%; }
-    #holdings { margin-top: 10px; font-weight: bold; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo Bullx Sandbox</title>
+    <link rel="stylesheet" href="sidepanel.css">
 </head>
 <body>
-  <h3>Buy</h3>
-  <button id="buy">Buy 1 Unit</button>
+    <div class="container">
+        <div class="header">
+            <h1>Neo Bullx Sandbox</h1>
+            <p>Real-time simulation</p>
+        </div>
 
-  <h3>Sell</h3>
-  <div>
-    <button class="sell" data-percent="25">Sell 25%</button>
-    <button class="sell" data-percent="50">Sell 50%</button>
-    <button class="sell" data-percent="75">Sell 75%</button>
-    <button class="sell" data-percent="100">Sell 100%</button>
-  </div>
+        <div class="main-content">
+            <div class="card">
+                <div class="card-heading">
+                  <h2>Market Data</h2>
+                  <div class="connection-status disconnected" id="connectionStatus">Connecting...</div>
+                </div>
+                <div class="price-display">
+                    <div class="token-name" id="tokenName">Loading...</div>
+                    <div class="token-price" id="tokenPrice">$0.00</div>
+                    <!-- <div class="price-change" id="priceChange">+0.00%</div> -->
+                </div>
 
-  <div id="holdings">Loading...</div>
+                <h3 style="margin-bottom: 10px; color: #2c3e50; font-size: 1rem;">Buy</h3>
+                <div class="button-group">
+                    <button class="btn btn-buy" data-amount="1">$1</button>
+                    <button class="btn btn-buy" data-amount="5">$5</button>
+                    <button class="btn btn-buy" data-amount="10">$10</button>
+                    <button class="btn btn-buy" data-amount="20">$20</button>
+                </div>
 
-  <h3>Actions</h3>
-  <button id="reset-token">Reset This Token</button>
-  <button id="reset-all">Reset All Tokens</button>
+                <h3 style="margin-bottom: 10px; color: #2c3e50; font-size: 1rem;">Sell</h3>
+                <div class="button-group">
+                    <button class="btn btn-sell" data-percentage="0.25">25%</button>
+                    <button class="btn btn-sell" data-percentage="0.5">50%</button>
+                    <button class="btn btn-sell" data-percentage="0.75">75%</button>
+                    <button class="btn btn-sell" data-percentage="1">100%</button>
+                </div>
+            </div>
 
-  <script src="sidepanel.js"></script>
+            <div class="card">
+                <h2>Position</h2>
+                <div class="stat-row">
+                    <span class="stat-label">Holdings:</span>
+                    <span class="stat-value" id="holdings">0.00</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Avg Buy Price:</span>
+                    <span class="stat-value" id="avgPrice">$0.00</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Current Value:</span>
+                    <span class="stat-value" id="currentValue">$0.00</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Unrealized P&L:</span>
+                    <span class="stat-value" id="unrealizedPnl">$0.00</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Realized P&L:</span>
+                    <span class="stat-value" id="realizedPnl">$0.00</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Cash Balance:</span>
+                    <span class="stat-value" id="cashBalance">$100.00</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Portfolio Summary</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <div class="portfolio-title">Total Portfolio Value</div>
+                        <div class="portfolio-value" id="totalValue">$100.00</div>
+                        <div class="portfolio-change" id="totalChange">+$0.00 (0.00%)</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="portfolio-title">Total Unrealized P&L</div>
+                        <div class="portfolio-value" id="totalUnrealized">$0.00</div>
+                        <div class="portfolio-change" id="totalUnrealizedPct">0.00%</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="portfolio-title">Total Realized P&L</div>
+                        <div class="portfolio-value" id="totalRealized">$0.00</div>
+                        <div class="portfolio-change" id="totalRealizedPct">0.00%</div>
+                    </div>
+                    <button class="btn" id="reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sidepanel.js"></script>
 </body>
 </html>
